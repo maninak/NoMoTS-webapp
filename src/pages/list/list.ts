@@ -3,10 +3,10 @@ import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
 })
 export class ListPage {
-  selectedItem: any;
+  selectedItem: {};
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
@@ -19,19 +19,19 @@ export class ListPage {
     'american-football', 'boat', 'bluetooth', 'build'];
 
     this.items = [];
-    for (let i = 1; i < 11; i++) {
+    for (let i: number = 1; i < 11; i++) {
       this.items.push({
         title: 'Item ' + i,
         note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+        icon: this.icons[Math.floor(Math.random() * this.icons.length)],
       });
     }
   }
 
-  itemTapped(event, item) {
+  itemTapped(event: Event, item: {title: string, note: string, icon: string}): void {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(ListPage, {
-      item: item
+      item: item,
     });
   }
 }

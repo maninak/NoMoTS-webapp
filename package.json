@@ -1,5 +1,5 @@
 {
-    "name": "NoMoTS-webapp",
+    "name": "nomots-webapp",
     "description": "A simple Ionic Progressive Web App that serves as a front-end for the NoMoTS-api boilerplate's demo API.",
     "version": "0.0.1",
     "author": "maninak",
