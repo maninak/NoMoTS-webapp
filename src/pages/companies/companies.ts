@@ -15,6 +15,10 @@ export class CompaniesPage {
   endpoints: [string];
   actions: [string];
 
+  selectedEndpoint: string;
+  selectedAction: string;
+  selectedDescription: string;
+
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
@@ -44,22 +48,31 @@ export class CompaniesPage {
   }
 
   private onEndpointChange(event: string): void {
-    let actionsObj: Object = this.apiSchema[event];
+    this.selectedEndpoint = event;
 
+    let actionsObj: Object = this.apiSchema[event];
     let isDirty: boolean = true;
+
+    if (this.selectedAction !== undefined) {
+      // this.mitsos.nativeElement.options[this.mitsos.nativeElement.selectedIndex].value = '';
+    }
     // iterate through api request schema and configure actions
     for (let action in actionsObj) {
-      if ((this.actions !== undefined) && isDirty) {
-        this.actions.length = 0; // empty array to erase possible old entries from older endpoint selection
+      if (isDirty || (this.actions === undefined)) {
+        // if array is dirty or undefined then reset any previous selections
+        this.selectedAction = '';
+        this.selectedDescription = '';
+        this.actions = [action];
         isDirty = false;
-      }
-      if (this.actions === undefined) {
-        // if array is undefined then instantiate it
-        this.actions = [action.toUpperCase()];
       } else {
-        this.actions.push(action.toUpperCase());
+        this.actions.push(action);
       }
     }
+  }
+
+  private onActionChange(event: string): void {
+    this.selectedAction = event;
+    this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedAction]['description'];
   }
 
 }
