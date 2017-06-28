@@ -14,3 +14,26 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+/* Hide the obnoxious vertical scrollbar */
+[scrollbar-y-auto] .scroll-content {
+  overflow-y: auto !important;
+}
+
+.popover-content {
+  overflow-y: hidden;
+}
+
+/* Contain into a main page column*/
+[main-column] {
+  max-width: 740px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* apply to a container to flex all its children towards the center */
+[center-children] {
+  display: flex;
+  justify-content: center;
+}
