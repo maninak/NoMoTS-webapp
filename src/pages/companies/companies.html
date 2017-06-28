@@ -13,17 +13,15 @@
   <div class="selections" main-column center-children>
 
     <ion-item>
-      <ion-label>Path</ion-label>
-      <ion-select [(ngModel)]="urlPath" interface="popover">
-        <ion-option value="/companies">/companies</ion-option>
-        <ion-option value="/companies/:id">/companies/:id</ion-option>
-        <ion-option value="/companies/create">/companies/create</ion-option>
+      <ion-label>Endpoint</ion-label>
+      <ion-select [(ngModel)]="endpoint" interface="popover">
+        <ion-option *ngFor="let endpoint of endpoints" value="{{endpoint}}">{{endpoint}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>Action</ion-label>
-      <ion-select [(ngModel)]="urlPath" interface="popover" scrollbar-y-auto>
+      <ion-select [(ngModel)]="action" interface="popover" scrollbar-y-auto>
         <!--<ion-option *ngFor="let option of options" value="{{option.path}}">{{option.path}}</ion-option>-->
       </ion-select>
     </ion-item>

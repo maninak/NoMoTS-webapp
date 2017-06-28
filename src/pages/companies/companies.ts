@@ -11,7 +11,8 @@ import 'rxjs/add/operator/toPromise';
   templateUrl: 'companies.html',
 })
 export class CompaniesPage {
-  apiSchema: JSON;
+  apiSchema: Object;
+  endpoints: [string];
 
   constructor(
       public navCtrl: NavController,
@@ -28,6 +29,16 @@ export class CompaniesPage {
       .toPromise()
       .then( (response: Object) => {
         this.apiSchema = JSON.parse(response['_body'].toString());
+
+        // iterate through api request schema and init endpoints
+        for (let endpoint in this.apiSchema) {
+          if (this.endpoints === undefined) {
+            // if array is undefined then instantiate it
+            this.endpoints = [endpoint];
+          } else {
+            this.endpoints.push(endpoint);
+          }
+        }
       });
   }
 
