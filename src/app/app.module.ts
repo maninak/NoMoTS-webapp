@@ -7,7 +7,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { HomePage } from '../pages/home/home';
-import { CompaniesPage } from './../pages/companies/companies';
 import { MyApp } from './app.component';
 
 
@@ -15,7 +14,6 @@ import { MyApp } from './app.component';
   declarations: [
     MyApp,
     HomePage,
-    CompaniesPage,
   ],
   imports: [
     HttpModule,
@@ -26,7 +24,6 @@ import { MyApp } from './app.component';
   entryComponents: [
     MyApp,
     HomePage,
-    CompaniesPage,
   ],
   providers: [
     StatusBar,
