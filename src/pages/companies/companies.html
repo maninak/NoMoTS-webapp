@@ -13,24 +13,25 @@
   <div class="selections" main-column center-children>
 
     <ion-item>
-      <ion-label>Endpoint</ion-label>
+      <ion-label narrow>Endpoint</ion-label>
       <ion-select [ngModel]="selectedEndpoint" (ngModelChange)="onEndpointChange($event)" interface="popover">
         <ion-option *ngFor="let endpoint of endpoints" value="{{endpoint}}">{{endpoint}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label>Action</ion-label>
+      <ion-label narrow>Action</ion-label>
       <ion-select [ngModel]="selectedAction" (ngModelChange)="onActionChange($event)" interface="popover" scrollbar-y-auto>
         <ion-option *ngFor="let action of actions" value="{{action}}">{{action.toUpperCase()}}</ion-option>
       </ion-select>
     </ion-item>
 
-    <div>{{selectedDescription}}</div>
+    <ion-item text-wrap>
+      <ion-label pin-top narrow gray>Description</ion-label>
+      <ion-label text-right>{{selectedDescription}}</ion-label>
+    </ion-item>
 
   </div>
-
-  <!-- Description of selection, here -->
 
   <!-- Input form related to selection, here-->
 

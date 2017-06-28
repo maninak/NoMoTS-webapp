@@ -3,13 +3,22 @@ page-companies {
   .selections {
     flex-direction: column;
 
-    ion-label {
-      max-width: 80px;
-    }
-
     ion-select {
       max-width: 200px;
       margin-left: auto;
     }
+  }
+
+  [pin-top] {
+    margin-bottom: auto;
+  }
+
+  [narrow] {
+    max-width: 90px;
+  }
+
+  .item-md [gray],
+  .item-wp [gray] {
+    color: #999;
   }
 }
