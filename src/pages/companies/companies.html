@@ -12,6 +12,7 @@
 
   <div class="selections" main-column center-children>
 
+<ion-content padding bg-light scrollbar-y-auto>
     <ion-item>
       <ion-label narrow>Endpoint</ion-label>
       <ion-select [ngModel]="selectedEndpoint" (ngModelChange)="onEndpointChange($event)" interface="popover">

@@ -20,6 +20,10 @@
   overflow-y: auto !important;
 }
 
+[bg-light] {
+  background-color: color($colors, light) !important;
+}
+
 .popover-content {
   overflow-y: hidden;
 }
