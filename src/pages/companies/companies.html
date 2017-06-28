@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Play with NoMoTS api!</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding scrollbar-y-auto>
+
+  <div  main-column center-children>
+
+    <ion-item>
+      <ion-label>Path</ion-label>
+      <ion-select [(ngModel)]="urlPath" interface="popover">
+        <ion-option value="/companies">/companies</ion-option>
+        <ion-option value="/companies/:id">/companies/:id</ion-option>
+        <ion-option value="/companies/create">/companies/create</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Action</ion-label>
+      <ion-select [(ngModel)]="urlPath" interface="popover" scrollbar-y-auto>
+        <!--<ion-option *ngFor="let option of options" value="{{option.path}}">{{option.path}}</ion-option>-->
+      </ion-select>
+    </ion-item>
+
+  </div>
+
+  <!-- Description of selection, here -->
+
+  <!-- Input form related to selection, here-->
+
+  <!-- Button to send request -->
+
+  <!-- Prettyfied JSON response -->
+
+</ion-content>

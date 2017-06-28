@@ -2,18 +2,19 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { MyApp } from './app.component';
-
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+
+import { HomePage } from '../pages/home/home';
+import { CompaniesPage } from './../pages/companies/companies';
+import { MyApp } from './app.component';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    CompaniesPage,
   ],
   imports: [
     BrowserModule,
@@ -23,12 +24,12 @@ import { StatusBar } from '@ionic-native/status-bar';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    CompaniesPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
   ],
 })
 export class AppModule {}
