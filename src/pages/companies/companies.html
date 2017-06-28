@@ -21,7 +21,7 @@
 
     <ion-item>
       <ion-label narrow>Action</ion-label>
-      <ion-select [ngModel]="selectedAction" (ngModelChange)="onActionChange($event)" interface="popover" scrollbar-y-auto>
+      <ion-select [ngModel]="selectedAction" (ngModelChange)="onActionChange($event)" interface="popover">
         <ion-option *ngFor="let action of actions" value="{{action}}">{{action.toUpperCase()}}</ion-option>
       </ion-select>
     </ion-item>
