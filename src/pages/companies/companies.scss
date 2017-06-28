@@ -2,6 +2,14 @@ page-companies {
 
   .selections {
     flex-direction: column;
+
+    ion-label {
+      max-width: 80px;
+    }
+
+    ion-select {
+      max-width: 200px;
+      margin-left: auto;
+    }
   }
-  
 }
