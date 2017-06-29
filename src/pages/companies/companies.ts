@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Headers, Http } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -57,9 +57,14 @@ export class CompaniesPage {
   }
 
   private onSendRequest(): void {
+    let headers: Headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
-    // to get the id param do propertiesForm['value'].id;
-    // TODO implement
+    this.http.get(`https://nomots.herokuapp.com/api${this.selectedEndpoint}`, { headers: headers })
+      .toPromise()
+      .then( (response: Object) => {
+        console.log (JSON.parse(response['_body'].toString()));
+      });
   }
 
 }
