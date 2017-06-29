@@ -57,7 +57,6 @@ export class CompaniesPage {
   }
 
   private onSendRequest(propertiesForm: Object): void {
-    console.log(propertiesForm['controls']['id']); // TODO delete
 
     // to get the id param do propertiesForm['value'].id;
     // TODO implement

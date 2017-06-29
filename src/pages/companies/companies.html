@@ -39,35 +39,37 @@
   </div>
 
   <!-- API request configuration -->
-    <form *ngIf="selectedAction" #propertiesForm="ngForm" novalidate main-column margin-bottom>
-      <div *ngFor="let prop of apiSchema[selectedEndpoint][selectedAction]['properties'] | objectKeyValue">
-        <ion-item>
-          <ion-label *ngIf="propertiesForm.controls[prop.key]"
-                     [color]="(prop.value.required && propertiesForm.controls[prop.key].invalid) ? 'primary' : ''">
-            {{prop.key}}
-          </ion-label>
-          <ion-note *ngIf="(!prop.value.required) && (selectedActionProps[prop.key] === '')" item-end>
-            Optional
-          </ion-note>
-          <ion-note *ngIf="propertiesForm.controls[prop.key]"
-                    [hidden]="(! propertiesForm.submitted) || propertiesForm.controls[prop.key].valid"
-                    color="danger" item-end>
-            Required
-          </ion-note>
-          <!--TODO delete name=??-->
-          <ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
-                      #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off" [required]="prop.value.required">
-          </ion-input>
-        </ion-item>
-      </div>
+  <form *ngIf="selectedAction" #propertiesForm="ngForm"
+        cool-hack-to-reset-ngforms-submitted-state="propertiesForm.submitted = false"
+        novalidate main-column margin-bottom>
+    <div *ngFor="let prop of apiSchema[selectedEndpoint][selectedAction]['properties'] | objectKeyValue">
+      <ion-item>
+        <ion-label *ngIf="propertiesForm.controls[prop.key]"
+                    [color]="(prop.value.required && propertiesForm.controls[prop.key].invalid) ? 'primary' : ''">
+          {{prop.key}}
+        </ion-label>
+        <ion-note *ngIf="(!prop.value.required) && (selectedActionProps[prop.key] === '')" item-end>
+          Optional
+        </ion-note>
+        <ion-note *ngIf="propertiesForm.controls[prop.key]"
+                  [hidden]="(! propertiesForm.submitted) || propertiesForm.controls[prop.key].valid"
+                  color="danger" item-end>
+          Required
+        </ion-note>
+        <!--TODO delete name=??-->
+        <ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
+                    #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off" [required]="prop.value.required">
+        </ion-input>
+      </ion-item>
+    </div>
 
-      <div margin-top center-children>
-        <button ion-button icon-start (click)="onSendRequest(propertiesForm)" type="submit">
-          <ion-icon name="paper-plane"></ion-icon>
-          Send Request
-        </button>
-      </div>
-    </form>
+    <div margin-top center-children>
+      <button ion-button icon-start (click)="onSendRequest(propertiesForm)" type="submit">
+        <ion-icon name="paper-plane"></ion-icon>
+        Send Request
+      </button>
+    </div>
+  </form>
 
   
 
