@@ -14,9 +14,9 @@ export class CompaniesPage {
   apiSchema: Object;
 
   selectedEndpoint: string;
-  selectedAction: string;
+  selectedMethod: string;
   selectedDescription: string;
-  selectedActionProps: Object = {
+  selectedMethodProps: Object = {
     id          : '',
     name        : '',
     address     : '',
@@ -50,14 +50,14 @@ export class CompaniesPage {
 
   private onEndpointChange(selectedEndpoint: string): void {
     this.selectedEndpoint = selectedEndpoint;
-    this.selectedAction = '';
+    this.selectedMethod = '';
     this.selectedDescription = '';
     this.benefCount = undefined;
   }
 
-  private onActionChange(selectedAction: string): void {
-    this.selectedAction = selectedAction;
-    this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedAction]['description'];
+  private onMethodChange(selectedMethod: string): void {
+    this.selectedMethod = selectedMethod;
+    this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedMethod]['description'];
   }
 
   private onSendRequest(): void {
@@ -66,11 +66,11 @@ export class CompaniesPage {
 
     // Construct url
     let url: string = `https://nomots.herokuapp.com/api${this.selectedEndpoint}`;
-    url = url.replace(/:id/g, this.selectedActionProps['id']);
+    url = url.replace(/:id/g, this.selectedMethodProps['id']);
 
     // Construct url params
     let params: URLSearchParams = new URLSearchParams();
-    params.set('id', this.selectedActionProps['id']);
+    params.set('id', this.selectedMethodProps['id']);
 
     // Construct headers
     let headers: Headers = new Headers();
@@ -79,10 +79,10 @@ export class CompaniesPage {
     // Compile everything and create the actual request
     let reqOptionsArgs: RequestOptionsArgs = {
       url: url,
-      method: this.selectedAction,
+      method: this.selectedMethod,
       search: params,
       headers: headers,
-      body: this.selectedActionProps,
+      body: this.selectedMethodProps,
     };
     let reqOptions: RequestOptions = new RequestOptions(reqOptionsArgs);
     let request: Request = new Request(reqOptions);
