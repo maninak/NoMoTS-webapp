@@ -48,7 +48,8 @@
                     [color]="(prop.value.required && propertiesForm.controls[prop.key].invalid) ? 'primary' : ''">
           {{prop.key}}
         </ion-label>
-        <ion-note *ngIf="(!prop.value.required) && (selectedActionProps[prop.key] === '')" item-end>
+        <ion-note *ngIf="(!prop.value.required) 
+                  && ((selectedActionProps[prop.key] === '') || (selectedActionProps[prop.key].length === 0))" item-end>
           Optional
         </ion-note>
         <ion-note *ngIf="propertiesForm.controls[prop.key]"
