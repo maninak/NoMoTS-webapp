@@ -16,6 +16,16 @@ export class CompaniesPage {
   selectedEndpoint: string;
   selectedAction: string;
   selectedDescription: string;
+  selectedActionProps: Object = {
+    id: '',
+    name: '',
+    address: '',
+    city: '',
+    country: '',
+    email: '',
+    phone: '',
+    benef_owners: '',
+  };
 
   constructor(
       public navCtrl: NavController,
@@ -35,15 +45,22 @@ export class CompaniesPage {
       });
   }
 
-  private onEndpointChange(event: string): void {
-    this.selectedEndpoint = event;
+  private onEndpointChange(selectedEndpoint: string): void {
+    this.selectedEndpoint = selectedEndpoint;
     this.selectedAction = '';
     this.selectedDescription = '';
   }
 
-  private onActionChange(event: string): void {
-    this.selectedAction = event;
+  private onActionChange(selectedAction: string): void {
+    this.selectedAction = selectedAction;
     this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedAction]['description'];
+  }
+
+  private onSendRequest(propertiesForm: Object): void {
+    console.log(propertiesForm['controls']['id']); // TODO delete
+
+    // to get the id param do propertiesForm['value'].id;
+    // TODO implement
   }
 
 }

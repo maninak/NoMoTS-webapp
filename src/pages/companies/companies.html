@@ -39,19 +39,33 @@
   </div>
 
   <!-- API request configuration -->
-    <form #loginForm="ngForm" novalidate main-column margin-bottom>
-      <ion-item *ngFor="let i of apiSchema | objectKeyValue">
-        <ion-label>{{i.key}}</ion-label>
-        <ion-input  [(ngModel)]="login" name="username" type="text" 
-                    #username="ngModel" spellcheck="false" autocapitalize="off" required>
-        </ion-input>
-      </ion-item>
-      <!--<p [hidden]="username.valid || submitted == false" ion-text color="danger" padding-left>
-        Username is required
-      </p>-->
+    <form *ngIf="selectedAction" #propertiesForm="ngForm" novalidate main-column margin-bottom>
+      <div *ngFor="let prop of apiSchema[selectedEndpoint][selectedAction]['properties'] | objectKeyValue">
+        <ion-item>
+          <ion-label *ngIf="propertiesForm.controls[prop.key]"
+                     [color]="(prop.value.required && propertiesForm.controls[prop.key].invalid) ? 'primary' : ''">
+            {{prop.key}}
+          </ion-label>
+          <ion-note *ngIf="! prop.value.required" item-end>
+            Optional
+          </ion-note>
+          <!--TODO delete name=??-->
+          <ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
+                      #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off" [required]="prop.value.required">
+          </ion-input>
+        </ion-item>
+        <p *ngIf="propertiesForm.controls[prop.key]"
+            [hidden]="(! propertiesForm.submitted) || propertiesForm.controls[prop.key].valid"
+            ion-text color="danger" padding-left>
+          {{prop.key}} is required
+        </p>
+      </div>
 
       <div margin-top center-children>
-        <button ion-button (click)="onLogin(loginForm)" type="submit" >Login</button>
+        <button ion-button icon-start (click)="onSendRequest(propertiesForm)" type="submit">
+          <ion-icon name="paper-plane"></ion-icon>
+          Send Request
+        </button>
       </div>
     </form>
 
