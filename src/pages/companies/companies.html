@@ -54,8 +54,7 @@
                     [color]="(prop.value.required && propertiesForm.controls[prop.key].invalid) ? 'primary' : ''">
           {{prop.key}}
         </ion-label>
-        <ion-note *ngIf="(!prop.value.required) 
-                  && ((selectedActionProps[prop.key] === '') || (selectedActionProps[prop.key].length === 0))"
+        <ion-note *ngIf="(!prop.value.required) && (selectedActionProps[prop.key] === '')"
                   item-end>
           Optional
         </ion-note>
@@ -72,12 +71,10 @@
 
       <!-- Do custom stuff because company owners is an array of strings -->
       <ion-item *ngIf="prop.key === 'benef_owners'">
-        <ion-label *ngIf="propertiesForm.controls[prop.key]"
-                    [color]="(prop.value.required && propertiesForm.controls[prop.key].invalid) ? 'primary' : ''">
-          {{prop.key}}
+        <ion-label [color]="(prop.value.required) ? 'primary' : ''">
+          {{prop.key}} (select count)
         </ion-label>
-        <ion-note *ngIf="(!prop.value.required) 
-                  && ((selectedActionProps[prop.key] === '') || (selectedActionProps[prop.key].length === 0))"
+        <ion-note *ngIf="(!prop.value.required) && (benefCount === undefined)"
                   item-end>
           Optional
         </ion-note>
@@ -86,10 +83,17 @@
                   color="danger" item-end>
           Required
         </ion-note>
-        <ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
+        <!-- Create a select of 11 options [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] -->
+        <ion-select [(ngModel)]="benefCount" name="benefCount" interface="popover">
+          <ion-option *ngFor="let i of arrayOfTen"
+                      value="{{i}}">
+            {{i}}
+          </ion-option>
+        </ion-select>
+        <!--<ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
                     #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off"
                     [required]="prop.value.required" clearInput>
-        </ion-input>
+        </ion-input>-->
       </ion-item>
     </div>
 

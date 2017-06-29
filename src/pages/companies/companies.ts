@@ -26,6 +26,9 @@ export class CompaniesPage {
     phone       : '',
     benef_owners: [],
   };
+  // an array of 11 numbers [0, 1, 2, 3, 4, 5]
+  arrayOfTen: [number] = Array.apply(undefined, {length: 6}).map(Number.call, Number);
+  benefCount: number;
 
   response: { message: JSON, error: Error };
 
