@@ -58,7 +58,8 @@
         </ion-note>
         <!--TODO delete name=??-->
         <ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
-                    #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off" [required]="prop.value.required">
+                    #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off"
+                    [required]="prop.value.required" clearInput>
         </ion-input>
       </ion-item>
     </div>
