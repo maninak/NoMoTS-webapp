@@ -8,10 +8,10 @@
 </ion-header>
 
 
-<ion-content padding bg-light scrollbar-y-auto>
+<ion-content padding-vertical bg-light scrollbar-y-auto>
   
   <!-- API request selection -->
-  <div class="selections" margin-bottom main-column center-children>
+  <div class="selections card" margin-bottom main-column center-children>
     <ion-item>
       <ion-label [color]="(!selectedEndpoint) ? 'primary' : ''" narrow>Endpoint</ion-label>
       <ion-select [ngModel]="selectedEndpoint" (ngModelChange)="onEndpointChange($event)" interface="popover">
@@ -41,7 +41,7 @@
   <!-- API request configuration -->
   <form *ngIf="selectedAction" #propertiesForm="ngForm"
         cool-hack-to-reset-ngforms-submitted-state="propertiesForm.submitted = false"
-        novalidate main-column margin-bottom>
+        novalidate class="card" main-column margin-bottom>
     <div *ngFor="let prop of apiSchema[selectedEndpoint][selectedAction]['properties'] | objectKeyValue">
       <ion-item>
         <ion-label *ngIf="propertiesForm.controls[prop.key]"
@@ -64,8 +64,9 @@
       </ion-item>
     </div>
 
-    <div margin-top center-children>
-      <button ion-button icon-start (click)="onSendRequest(propertiesForm)" type="submit">
+    <div margin-vertical padding-bottom center-children>
+      <button [disabled]="propertiesForm.invalid" ion-button icon-start 
+              (click)="onSendRequest()" type="submit" shadow-none>
         <ion-icon name="paper-plane"></ion-icon>
         Send Request
       </button>

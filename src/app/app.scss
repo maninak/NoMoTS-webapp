@@ -24,6 +24,10 @@
   background-color: color($colors, light);
 }
 
+[shadow-none] {
+    box-shadow: none;
+}
+
 .popover-content {
   overflow-y: hidden;
 }

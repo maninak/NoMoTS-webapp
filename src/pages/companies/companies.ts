@@ -56,7 +56,7 @@ export class CompaniesPage {
     this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedAction]['description'];
   }
 
-  private onSendRequest(propertiesForm: Object): void {
+  private onSendRequest(): void {
 
     // to get the id param do propertiesForm['value'].id;
     // TODO implement
