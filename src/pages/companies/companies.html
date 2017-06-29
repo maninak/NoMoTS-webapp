@@ -41,7 +41,7 @@
   <!-- API request configuration -->
   <form *ngIf="selectedAction" #propertiesForm="ngForm"
         cool-hack-to-reset-ngforms-submitted-state="propertiesForm.submitted = false"
-        novalidate main-column padding-bottom margin-bottom>
+        novalidate main-column padding-bottom>
     <div padding-bottom>
       <ion-item *ngFor="let prop of apiSchema[selectedEndpoint][selectedAction]['properties'] | objectKeyValue">
         <ion-label *ngIf="propertiesForm.controls[prop.key]"
