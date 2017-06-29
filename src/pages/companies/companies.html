@@ -46,19 +46,19 @@
                      [color]="(prop.value.required && propertiesForm.controls[prop.key].invalid) ? 'primary' : ''">
             {{prop.key}}
           </ion-label>
-          <ion-note *ngIf="! prop.value.required" item-end>
+          <ion-note *ngIf="(!prop.value.required) && (selectedActionProps[prop.key] === '')" item-end>
             Optional
+          </ion-note>
+          <ion-note *ngIf="propertiesForm.controls[prop.key]"
+                    [hidden]="(! propertiesForm.submitted) || propertiesForm.controls[prop.key].valid"
+                    color="danger" item-end>
+            Required
           </ion-note>
           <!--TODO delete name=??-->
           <ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
                       #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off" [required]="prop.value.required">
           </ion-input>
         </ion-item>
-        <p *ngIf="propertiesForm.controls[prop.key]"
-            [hidden]="(! propertiesForm.submitted) || propertiesForm.controls[prop.key].valid"
-            ion-text color="danger" padding-left>
-          {{prop.key}} is required
-        </p>
       </div>
 
       <div margin-top center-children>
