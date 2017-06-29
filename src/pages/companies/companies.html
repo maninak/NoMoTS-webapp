@@ -9,7 +9,7 @@
 
 
 
-<ion-content  center-children padding-vertical margin-top bg-light scrollbar-y-auto>
+<ion-content  center-children padding-vertical bg-light scrollbar-y-auto>
   
   <!-- API request selection -->
   <div class="selections" margin-bottom main-column>
@@ -64,12 +64,13 @@
           Required
         </ion-note>
         <ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
-                    #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off"
+                    #{{prop.key}}="ngModel" spellcheck="true" autocapitalize="on"
                     [required]="prop.value.required" clearInput>
         </ion-input>
       </ion-item>
 
       <!-- Do custom stuff because company owners is an array of strings -->
+      <!-- First select how many benefeciarys we want to type in -->
       <ion-item *ngIf="prop.key === 'benef_owners'">
         <ion-label [color]="(prop.value.required) ? 'primary' : ''">
           {{prop.key}} (select count)
@@ -83,21 +84,28 @@
                   color="danger" item-end>
           Required
         </ion-note>
-        <!-- Create a select of 11 options [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] -->
         <ion-select [(ngModel)]="benefCount" name="benefCount" interface="popover">
-          <ion-option *ngFor="let i of arrayOfTen"
+          <ion-option *ngFor="let i of getArrayOfSize(6)"
                       value="{{i}}">
             {{i}}
           </ion-option>
         </ion-select>
-        <!--<ion-input [(ngModel)]="selectedActionProps[prop.key]" name="{{prop.key}}" type="text" 
-                    #{{prop.key}}="ngModel" spellcheck="false" autocapitalize="off"
-                    [required]="prop.value.required" clearInput>
-        </ion-input>-->
       </ion-item>
     </div>
 
-    <div padding-vertical center-children>
+    <!-- Then create an input field for each beneficiary, as selected above -->
+    <ion-item *ngFor="let j of getArrayOfSize(benefCount)">
+      <ion-label>
+        Beneficiary name {{j+1}}
+      </ion-label>
+      <ion-input  [(ngModel)]="selectedActionProps['benef_owners'][j]" name="{{j}}" type="text" 
+                  #{{j}}="ngModel" spellcheck="true" autocapitalize="on"
+                  [required]="apiSchema[selectedEndpoint][selectedAction]['properties']['benef_owners'].required" clearInput>
+      </ion-input>
+    </ion-item>
+
+
+    <div padding-vertical margin-top center-children>
       <button [disabled]="propertiesForm.invalid" ion-button icon-start 
               (click)="onSendRequest()" type="submit">
         <ion-icon name="paper-plane"></ion-icon>

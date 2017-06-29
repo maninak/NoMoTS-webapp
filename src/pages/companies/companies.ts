@@ -26,8 +26,6 @@ export class CompaniesPage {
     phone       : '',
     benef_owners: [],
   };
-  // an array of 11 numbers [0, 1, 2, 3, 4, 5]
-  arrayOfTen: [number] = Array.apply(undefined, {length: 6}).map(Number.call, Number);
   benefCount: number;
 
   response: { message: JSON, error: Error };
@@ -99,6 +97,12 @@ export class CompaniesPage {
         this.response.error = error;
         console.warn (this.response.error); // TODO delete
       });
+  }
+
+  private getArrayOfSize(size: number): [number] {
+    // an array of <size> numbers [0, 1, 2, 3, ..., size-1]
+    let array: [number] = Array.apply(undefined, {length: size}).map(Number.call, Number);
+    return array;
   }
 
 }
