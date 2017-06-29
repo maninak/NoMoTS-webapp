@@ -98,7 +98,8 @@
       <ion-label>
         Beneficiary name {{j+1}}
       </ion-label>
-      <ion-input  [(ngModel)]="selectedActionProps['benef_owners'][j]" name="{{j}}" type="text" 
+      <ion-input  *ngIf="apiSchema[selectedEndpoint][selectedAction]['properties']['benef_owners']"
+                  [(ngModel)]="selectedActionProps['benef_owners'][j]" name="{{j}}" type="text" 
                   #{{j}}="ngModel" spellcheck="true" autocapitalize="on"
                   [required]="apiSchema[selectedEndpoint][selectedAction]['properties']['benef_owners'].required" clearInput>
       </ion-input>

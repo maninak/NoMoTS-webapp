@@ -52,6 +52,7 @@ export class CompaniesPage {
     this.selectedEndpoint = selectedEndpoint;
     this.selectedAction = '';
     this.selectedDescription = '';
+    this.benefCount = undefined;
   }
 
   private onActionChange(selectedAction: string): void {
