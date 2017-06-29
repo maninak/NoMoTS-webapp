@@ -1,5 +1,9 @@
 page-companies {
 
+  [no-border-bottom] div {
+    border-bottom: 0px !important;
+  }
+
   .card {
     margin: 10px;
     border-radius: 2px;
