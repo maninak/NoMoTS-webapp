@@ -17,15 +17,17 @@ export class CompaniesPage {
   selectedAction: string;
   selectedDescription: string;
   selectedActionProps: Object = {
-    id: '',
-    name: '',
-    address: '',
-    city: '',
-    country: '',
-    email: '',
-    phone: '',
+    id          : '',
+    name        : '',
+    address     : '',
+    city        : '',
+    country     : '',
+    email       : '',
+    phone       : '',
     benef_owners: [],
   };
+
+  response: { message: JSON, error: Error };
 
   constructor(
       public navCtrl: NavController,
@@ -57,6 +59,9 @@ export class CompaniesPage {
   }
 
   private onSendRequest(): void {
+    // Initialize response obj
+    this.response = { message: undefined, error: undefined };
+
     // Construct url
     let url: string = `https://nomots.herokuapp.com/api${this.selectedEndpoint}`;
     url = url.replace(/:id/g, this.selectedActionProps['id']);
@@ -80,10 +85,16 @@ export class CompaniesPage {
     let reqOptions: RequestOptions = new RequestOptions(reqOptionsArgs);
     let request: Request = new Request(reqOptions);
 
+    // Execute the request and handle the response
     this.http.request(request)
       .toPromise()
       .then( (response: Object) => {
-        console.log (JSON.parse(response['_body']));
+        this.response.message = JSON.parse(response['_body']);
+        console.log (this.response); // TODO delete
+      })
+      .catch((error: Error) => {
+        this.response.error = error;
+        console.warn (this.response.error); // TODO delete
       });
   }
 
