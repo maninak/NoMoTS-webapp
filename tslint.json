@@ -11,7 +11,7 @@
     "no-var-requires": true,
     "no-null-keyword": true,
     "no-shadowed-variable": true,
-    "no-unused-new": true,
+    //"no-unused-new": true,
     "no-reference": true,
     "restrict-plus-operands": true, 
     "switch-default": true,

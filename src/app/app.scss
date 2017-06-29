@@ -20,6 +20,14 @@
   overflow-y: auto !important;
 }
 
+[bg-light] {
+  background-color: color($colors, light);
+}
+
+[shadow-none] {
+    box-shadow: none;
+}
+
 .popover-content {
   overflow-y: hidden;
 }
@@ -27,7 +35,6 @@
 /* Contain into a main page column*/
 [main-column] {
   max-width: 740px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }
