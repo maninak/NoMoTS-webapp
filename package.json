@@ -1,7 +1,7 @@
 {
     "name": "nomots-webapp",
     "description": "An Ionic Progressive Web App that serves as a front-end for the NoMoTS-api boilerplate's demo API.",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "author": "maninak",
     "homepage": "https://maninak.github.io",
     "private": true,
