@@ -1,3 +1,7 @@
+<div style="text-align: center; margin: 40px 0px">
+  <img src="./src/assets/img/NoMoTS.png" alt="NoMoTS logo" height="250" width="250"></img>
+</div>
+
 # NoMoTS Web App
 
 <!-- MarkdownTOC depth=3 autolink=true bracket=round -->
