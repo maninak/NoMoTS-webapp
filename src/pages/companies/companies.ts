@@ -92,11 +92,9 @@ export class CompaniesPage {
       .toPromise()
       .then( (response: Object) => {
         this.response.message = JSON.parse(response['_body']);
-        console.log (this.response); // TODO delete
       })
       .catch((error: Error) => {
         this.response.error = error;
-        console.warn (this.response.error); // TODO delete
       });
   }
 
