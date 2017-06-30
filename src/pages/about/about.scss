@@ -14,9 +14,18 @@ page-about {
     max-height: 200px;
   }
 
-  .about-info p {
-    color: color($colors, midgray);
-    text-align: justify;
+  .about-info {
+
+    .description {
+      color: color($colors, midgray);
+    }
+
+    .quote {
+      border-left: color($colors, midgray) 0.25em solid;
+      padding-left: 0.75em;
+      font-style: italic
+    }
+
   }
 
   .md,
