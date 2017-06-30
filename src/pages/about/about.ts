@@ -19,4 +19,8 @@ export class AboutPage {
     this.navCtrl.setRoot(CompaniesPage);
   }
 
+  private onLearnMoreClick(): void {
+    window.open('https://github.com/maninak/NoMoTS-api', '_blank').focus();
+  }
+
 }
