@@ -15,9 +15,23 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+/* Choose highlight color of selected text*/
+*::selection {
+  background: color($colors, primary);
+  color: #ffffff;
+}
+
 /* Hide the obnoxious vertical scrollbar */
 [scrollbar-y-auto] .scroll-content {
   overflow-y: auto !important;
+}
+
+[bg-light] {
+  background-color: color($colors, light);
+}
+
+[shadow-none] {
+    box-shadow: none;
 }
 
 .popover-content {
@@ -27,7 +41,6 @@
 /* Contain into a main page column*/
 [main-column] {
   max-width: 740px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -36,4 +49,12 @@
 [center-children] {
   display: flex;
   justify-content: center;
+}
+
+[max-width-sm] {
+  max-width: 475px;
+}
+
+[max-width-xs] {
+  max-width: 360px;
 }

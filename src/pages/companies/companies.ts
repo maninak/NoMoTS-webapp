@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Headers, Http, Request, RequestOptions, RequestOptionsArgs } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -12,12 +12,23 @@ import 'rxjs/add/operator/toPromise';
 })
 export class CompaniesPage {
   apiSchema: Object;
-  endpoints: [string];
-  actions: [string];
 
   selectedEndpoint: string;
-  selectedAction: string;
+  selectedMethod: string;
   selectedDescription: string;
+  selectedMethodProps: Object = {
+    id          : '',
+    name        : '',
+    address     : '',
+    city        : '',
+    country     : '',
+    email       : '',
+    phone       : '',
+    benef_owners: [],
+  };
+  benefCount: number;
+
+  response: { message: JSON, error: Error };
 
   constructor(
       public navCtrl: NavController,
@@ -33,46 +44,64 @@ export class CompaniesPage {
     this.http.get('../../assets/json/NoMoTS-api_schema.json')
       .toPromise()
       .then( (response: Object) => {
-        this.apiSchema = JSON.parse(response['_body'].toString());
-
-        // iterate through api request schema and configure endpoints
-        for (let endpoint in this.apiSchema) {
-          if (this.endpoints === undefined) {
-            // if array is undefined then instantiate it
-            this.endpoints = [endpoint];
-          } else {
-            this.endpoints.push(endpoint);
-          }
-        }
+        this.apiSchema = JSON.parse(response['_body']);
       });
   }
 
-  private onEndpointChange(event: string): void {
-    this.selectedEndpoint = event;
-
-    let actionsObj: Object = this.apiSchema[event];
-    let isDirty: boolean = true;
-
-    if (this.selectedAction !== undefined) {
-      // this.mitsos.nativeElement.options[this.mitsos.nativeElement.selectedIndex].value = '';
-    }
-    // iterate through api request schema and configure actions
-    for (let action in actionsObj) {
-      if (isDirty || (this.actions === undefined)) {
-        // if array is dirty or undefined then reset any previous selections
-        this.selectedAction = '';
-        this.selectedDescription = '';
-        this.actions = [action];
-        isDirty = false;
-      } else {
-        this.actions.push(action);
-      }
-    }
+  private onEndpointChange(selectedEndpoint: string): void {
+    this.selectedEndpoint = selectedEndpoint;
+    this.selectedMethod = '';
+    this.selectedDescription = '';
+    this.benefCount = undefined;
   }
 
-  private onActionChange(event: string): void {
-    this.selectedAction = event;
-    this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedAction]['description'];
+  private onMethodChange(selectedMethod: string): void {
+    this.selectedMethod = selectedMethod;
+    this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedMethod]['description'];
+  }
+
+  private onSendRequest(): void {
+    // Initialize response obj
+    this.response = { message: undefined, error: undefined };
+
+    // Construct url
+    let url: string = `https://nomots.herokuapp.com/api${this.selectedEndpoint}`;
+    url = url.replace(/:id/g, this.selectedMethodProps['id']);
+
+    // Construct url params
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('id', this.selectedMethodProps['id']);
+
+    // Construct headers
+    let headers: Headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    // Compile everything and create the actual request
+    let reqOptionsArgs: RequestOptionsArgs = {
+      url: url,
+      method: this.selectedMethod,
+      search: params,
+      headers: headers,
+      body: this.selectedMethodProps,
+    };
+    let reqOptions: RequestOptions = new RequestOptions(reqOptionsArgs);
+    let request: Request = new Request(reqOptions);
+
+    // Execute the request and handle the response
+    this.http.request(request)
+      .toPromise()
+      .then( (response: Object) => {
+        this.response.message = JSON.parse(response['_body']);
+      })
+      .catch((error: Error) => {
+        this.response.error = error;
+      });
+  }
+
+  private getArrayOfSize(size: number): [number] {
+    // an array of <size> numbers [0, 1, 2, 3, ..., size-1]
+    let array: [number] = Array.apply(undefined, {length: size}).map(Number.call, Number);
+    return array;
   }
 
 }
