@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { HomePage } from '../pages/home/home';
 import { CompaniesPageModule } from './../pages/companies/companies.module';
 import { MyApp } from './app.component';
 
@@ -13,7 +12,6 @@ import { MyApp } from './app.component';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
   ],
   imports: [
     HttpModule,
@@ -24,7 +22,6 @@ import { MyApp } from './app.component';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
   ],
   providers: [
     StatusBar,
