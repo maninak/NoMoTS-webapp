@@ -105,7 +105,6 @@
       </ion-input>
     </ion-item>
 
-
     <div padding-vertical margin-top center-children>
       <button [disabled]="propertiesForm.invalid" ion-button icon-start 
               (click)="onSendRequest()" type="submit">
@@ -113,12 +112,21 @@
         Send Request
       </button>
     </div>
-    <div *ngIf="apiSchema[selectedEndpoint][selectedMethod]['properties'].length === 0" padding-top></div> <!-- TODO delete -->
   </form>
 
-  
 
-  
-  <!-- Prettyfied JSON response -->
+
+  <div *ngIf="response && response.message" class="response message" main-column bg-white border-round>
+    <pre>
+      {{response.message | json}}
+    </pre>
+  </div>
+
+
+  <div *ngIf="response && response.error" class="response error" main-column bg-white border-round>
+    <pre>
+      {{response.error}}
+    </pre>
+  </div>
 
 </ion-content>
