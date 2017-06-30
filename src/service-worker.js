@@ -9,7 +9,6 @@ importScripts('./build/sw-toolbox.js');
 
 self.toolbox.options.cache = {
   name: 'nomots-cache',
-  maxAgeSeconds: 60000 * 60, // 1 minute -> 1 hour
 };
 
 // pre-cache our key assets
@@ -24,7 +23,7 @@ self.toolbox.precache(
 );
 
 // dynamically cache any other local assets
-self.toolbox.router.any('/*', self.toolbox.fastest);
+self.toolbox.router.any('/*', self.toolbox.networkFirst);
 
 // for any other requests go to the network, cache,
 // and then only use that cached resource if your user goes offline
