@@ -15,6 +15,12 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+/* Choose highlight color of selected text*/
+*::selection {
+  background: color($colors, primary);
+  color: #ffffff;
+}
+
 /* Hide the obnoxious vertical scrollbar */
 [scrollbar-y-auto] .scroll-content {
   overflow-y: auto !important;
