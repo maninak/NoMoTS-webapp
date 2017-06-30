@@ -115,7 +115,7 @@
   </form>
 
 
-
+  <!-- API response if successfull -->
   <div *ngIf="response && response.message" class="response message" main-column bg-white border-round>
     <pre>
       {{response.message | json}}
@@ -123,6 +123,7 @@
   </div>
 
 
+  <!-- API response if error -->
   <div *ngIf="response && response.error" class="response error" main-column bg-white border-round>
     <pre>
       {{response.error}}
