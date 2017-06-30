@@ -36,9 +36,9 @@ page-companies {
 
   .response {
     padding: 16px;
-    -webkit-user-select: auto;
-    -moz-user-select: auto;
-    user-select: auto;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
     box-shadow: inset 0px 2px 10px #ccc;
     margin-bottom: 32px;
   }
