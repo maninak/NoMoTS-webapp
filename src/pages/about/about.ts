@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
+import { CompaniesPage } from './../companies/companies';
+
 
 @IonicPage()
 @Component({
@@ -8,10 +10,13 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl:  'about.html',
 })
 export class AboutPage {
-  conferenceDate: string = '2047-05-17';
 
   constructor(
-      private navCtrl    : NavController,
+      private navCtrl: NavController,
   ) {}
+
+  private onPlayClick(): void {
+    this.navCtrl.setRoot(CompaniesPage);
+  }
 
 }
