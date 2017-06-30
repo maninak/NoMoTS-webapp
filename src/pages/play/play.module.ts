@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { ObjectKeyValuePipe } from './../../pipes/object-key-value.pipe';
-import { CompaniesPage } from './companies';
+import { PlayPage } from './play';
 
 
 @NgModule({
   declarations: [
-    CompaniesPage,
+    PlayPage,
     ObjectKeyValuePipe,
   ],
   imports: [
-    IonicPageModule.forChild(CompaniesPage),
+    IonicPageModule.forChild(PlayPage),
   ],
   exports: [
-    CompaniesPage,
+    PlayPage,
   ],
 })
-export class CompaniesPageModule {}
+export class PlayPageModule {}
