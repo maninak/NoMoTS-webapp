@@ -1,26 +1,48 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# NoMoTS Web App
 
-## How to use this template
+<!-- MarkdownTOC depth=3 autolink=true bracket=round -->
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+- [Description](#description)
+- [Dependencies](#dependencies)
+- [Build](#build)
+    - [Serve](#serve)
+    - [Develop](#develop)
+    - [Deploy](#deploy)
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+<!-- /MarkdownTOC -->
 
-### With the Ionic CLI:
+## Description
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+NoMoTS Web App serves as an example front-end to easily interact with a deployed instance of the demo API included in [NoMoTS API](https://github.com/maninak/NoMoTS-api) boilerplate.
 
-```bash
+## Dependencies
+
+If Ionic and Cordova are not alredy installed in your machine, run:
+
+```sh
 $ sudo npm install -g ionic cordova
-$ ionic start mySideMenu sidemenu
 ```
 
-Then, to run it, cd into `mySideMenu` and run:
+## Build
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+```sh
+$ git clone git@github.com:maninak/NoMoTS-webapp.git && \
+  cd NoMoTS-webapp && \
+  npm install
 ```
 
-Substitute ios for android if not on a Mac.
+### Serve
+This will serve the application in a browser. Any source code edits automatically trigger rebuild and refresh the browser.
 
+```sh
+$ ionic serve
+```
+### Deploy
+
+First run the following command to make a production build for the web:
+
+```sh
+$ npm run build:www
+```
+
+Then the contents of the folder `www` are ready to be served.
