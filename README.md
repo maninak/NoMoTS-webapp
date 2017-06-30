@@ -17,7 +17,7 @@ NoMoTS Web App serves as an example front-end to easily interact with a deployed
 
 ## Dependencies
 
-If Ionic and Cordova are not alredy installed in your machine, run:
+If Ionic and Cordova are not already installed in your machine, run:
 
 ```sh
 $ sudo npm install -g ionic cordova
