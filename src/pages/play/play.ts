@@ -7,10 +7,10 @@ import 'rxjs/add/operator/toPromise';
 
 @IonicPage()
 @Component({
-  selector: 'page-companies',
-  templateUrl: 'companies.html',
+  selector: 'page-play',
+  templateUrl: 'play.html',
 })
-export class CompaniesPage {
+export class PlayPage {
   apiSchema: Object;
 
   selectedEndpoint: string;

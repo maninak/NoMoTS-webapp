@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
-import { CompaniesPage } from './../companies/companies';
+import { PlayPage } from './../play/play';
 
 
 @IonicPage()
@@ -11,12 +11,10 @@ import { CompaniesPage } from './../companies/companies';
 })
 export class AboutPage {
 
-  constructor(
-      private navCtrl: NavController,
-  ) {}
+  constructor(private navCtrl: NavController) {}
 
   private onPlayClick(): void {
-    this.navCtrl.setRoot(CompaniesPage);
+    this.navCtrl.setRoot(PlayPage);
   }
 
   private onLearnMoreClick(): void {

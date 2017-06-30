@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { AboutPageModule } from './../pages/about/about.module';
-import { CompaniesPageModule } from './../pages/companies/companies.module';
+import { PlayPageModule } from './../pages/play/play.module';
 import { MyApp } from './app.component';
 
 
@@ -17,7 +17,7 @@ import { MyApp } from './app.component';
   imports: [
     HttpModule,
     BrowserModule,
-    CompaniesPageModule,
+    PlayPageModule,
     AboutPageModule,
     IonicModule.forRoot(MyApp),
   ],
