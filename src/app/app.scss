@@ -50,3 +50,11 @@
   display: flex;
   justify-content: center;
 }
+
+[max-width-sm] {
+  max-width: 475px;
+}
+
+[max-width-xs] {
+  max-width: 360px;
+}
