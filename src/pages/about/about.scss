@@ -37,22 +37,15 @@ page-about {
 
   }
 
-  .md,
-  .wp {
-    
-    .about-info [text-right] {
-      margin-right: 0;
-    }
-
-  }
-
-  .ios .about-info {
-    text-align: center;
-  }
-
-  .ios .about-info ion-icon {
-    width: auto;
-    margin-right: 10px;
+  .version {
+    position: relative;
+    padding: 2em;
+    float: right;
+    font-size: 10px;
+    color: color($colors, lightgray);
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
   }
 
 }
