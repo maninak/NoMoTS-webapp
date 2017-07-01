@@ -50,8 +50,17 @@ export class PlayPage {
 
   private onEndpointChange(selectedEndpoint: string): void {
     this.selectedEndpoint = selectedEndpoint;
-    this.selectedMethod = '';
-    this.selectedDescription = '';
+
+    // if the selected endpoint has only one method, selected automatically for better UX
+    let availableMethods: string[] = Object.keys(this.apiSchema[this.selectedEndpoint]);
+    if (availableMethods.length === 1) {
+      this.selectedMethod = availableMethods[0];
+      this.selectedDescription = this.apiSchema[this.selectedEndpoint][this.selectedMethod]['description'];
+    } else {
+      this.selectedMethod = '';
+      this.selectedDescription = '';
+    }
+
     this.benefCount = undefined;
   }
 
