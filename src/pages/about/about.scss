@@ -8,15 +8,12 @@ page-about {
   }
 
   .about-header img {
-    padding: 25px 10px;
-    min-height: 115px;
-    max-height: 200px;
+    max-height: 150px;
   }
 
   @media screen and (max-width: 576px) {
 
     .about-header img {
-      padding: 0;
       max-height: 100px;
     }
     
