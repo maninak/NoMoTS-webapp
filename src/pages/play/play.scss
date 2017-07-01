@@ -22,7 +22,7 @@ page-play {
   }
 
   [bg-white] {
-    background-color: white !important;
+    background-color: color($colors, white) !important;
   }
 
   [border-round] {
@@ -41,21 +41,23 @@ page-play {
     user-select: text;
     box-shadow: inset 0px 2px 10px #ccc;
     margin-bottom: 32px;
+    max-height: 75vh;
+    overflow: auto;
   }
 
-  @media screen and (max-width: 739px) {
+  @media screen and (max-width: 576px) {
     
     .response {
-      max-width: 92vw;
+      max-width: 90vw;
     }
   }
 
   .message {
-    color: #0c597a;
+    color: color($colors, primary);
   }
 
   .error {
-    color: #ff1d00;
+    color: color($colors, danger);
   }
 
 }

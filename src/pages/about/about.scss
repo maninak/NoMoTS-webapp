@@ -4,23 +4,29 @@ page-about {
     background-color: color($colors, light);
     padding: 16px;
     width: 100%;
-    min-height: 150px;
     text-align: center;
   }
 
   .about-header img {
-    padding: 25px 10px;
-    min-height: 115px;
-    max-height: 200px;
+    max-height: 150px;
   }
 
+  @media screen and (max-width: 576px) {
+
+    .about-header img {
+      max-height: 100px;
+    }
+    
+  }
   .about-info {
+    font-size: 1.1em;
 
     .description {
-      color: color($colors, midgray);
+      color: color($colors, darkgray);
     }
 
     .quote {
+      color: color($colors, midgray);
       border-left: color($colors, midgray) 0.25em solid;
       padding-left: 0.75em;
       font-style: italic
@@ -28,22 +34,15 @@ page-about {
 
   }
 
-  .md,
-  .wp {
-    
-    .about-info [text-right] {
-      margin-right: 0;
-    }
-
-  }
-
-  .ios .about-info {
-    text-align: center;
-  }
-
-  .ios .about-info ion-icon {
-    width: auto;
-    margin-right: 10px;
+  .version {
+    position: relative;
+    padding: 2em;
+    float: right;
+    font-size: 10px;
+    color: color($colors, lightgray);
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
   }
 
 }
