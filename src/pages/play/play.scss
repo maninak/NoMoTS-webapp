@@ -22,7 +22,7 @@ page-play {
   }
 
   [bg-white] {
-    background-color: white !important;
+    background-color: color($colors, white) !important;
   }
 
   [border-round] {
@@ -41,6 +41,8 @@ page-play {
     user-select: text;
     box-shadow: inset 0px 2px 10px #ccc;
     margin-bottom: 32px;
+    max-height: 36em;
+    overflow: auto;
   }
 
   @media screen and (max-width: 739px) {
@@ -51,11 +53,11 @@ page-play {
   }
 
   .message {
-    color: #0c597a;
+    color: color($colors, primary);
   }
 
   .error {
-    color: #ff1d00;
+    color: color($colors, danger);
   }
 
 }
