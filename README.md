@@ -19,6 +19,8 @@
 
 NoMoTS Web App serves as an example front-end to easily interact with a deployed instance of the demo API included in [NoMoTS API](https://github.com/maninak/NoMoTS-api) boilerplate.
 
+Built with Ionic which is an Angular framework, it features native look'n'feel tailored to the visitor's device (iOS, Android, Windows Phone). Since it's built as a Progressive Web App, it can be soft installed on device with the "Add to Desktop" action and even launched when offline.
+
 ## Dependencies
 
 If Ionic is not already installed in your machine, run:
