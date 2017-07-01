@@ -15,12 +15,14 @@ page-about {
   }
 
   .about-info {
+    font-size: 1.1em;
 
     .description {
-      color: color($colors, midgray);
+      color: color($colors, darkgray);
     }
 
     .quote {
+      color: color($colors, midgray);
       border-left: color($colors, midgray) 0.25em solid;
       padding-left: 0.75em;
       font-style: italic
