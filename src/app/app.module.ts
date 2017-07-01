@@ -3,8 +3,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import { AboutPageModule } from './../pages/about/about.module';
-import { PlayPageModule } from './../pages/play/play.module';
+import { TabsPageModule } from './../pages/tabs/tabs.module';
 import { MyApp } from './app.component';
 
 
@@ -15,8 +14,7 @@ import { MyApp } from './app.component';
   imports: [
     HttpModule,
     BrowserModule,
-    PlayPageModule,
-    AboutPageModule,
+    TabsPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

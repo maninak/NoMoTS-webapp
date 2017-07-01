@@ -1,0 +1,14 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title>{{headerTitles[currentTabIndex]}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content scrollbar-y-auto>
+  <super-tabs (tabSelect)="onTabSelect($event.index)"
+              toolbarBackground="light" indicatorColor="primary" toolbarColor="primary">
+    <super-tab [root]="play" icon="game-controller-b"></super-tab>
+    <super-tab [root]="about" icon="information-circle"></super-tab>
+  </super-tabs>
+</ion-content>

@@ -91,14 +91,6 @@
     ws "1.1.1"
     xml2js "0.4.17"
 
-"@ionic/cli-plugin-cordova@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@ionic/cli-plugin-cordova/-/cli-plugin-cordova-1.4.0.tgz#2d3dd7bbd7321e0f1994b6f1a217176f55145296"
-  dependencies:
-    "@ionic/cli-utils" "1.4.0"
-    chalk "^1.1.3"
-    xml2js "^0.4.17"
-
 "@ionic/cli-plugin-ionic-angular@1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@ionic/cli-plugin-ionic-angular/-/cli-plugin-ionic-angular-1.3.1.tgz#8985f5a520db97ed6206615464e173d086ecd1ea"
@@ -1064,26 +1056,6 @@ cookiejar@^2.0.6:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.1.1.tgz#41ad57b1b555951ec171412a81942b1e8200d34a"
 
-cordova-plugin-console@^1.0.5:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-console/-/cordova-plugin-console-1.0.7.tgz#89b7a92ed1c335888dfc00d902dc417201cf3b0b"
-
-cordova-plugin-device@^1.1.4:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-device/-/cordova-plugin-device-1.1.6.tgz#2d21764cad7c9b801523e4e09a30e024b249334b"
-
-cordova-plugin-splashscreen@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-4.0.3.tgz#773cd1363c1f3bacb9901663e9e3793dd3e0a19d"
-
-cordova-plugin-statusbar@^2.2.2:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-statusbar/-/cordova-plugin-statusbar-2.2.3.tgz#51c5e02ad433bebd0b0dc977a446eb91dfee1502"
-
-cordova-plugin-whitelist@^1.3.1:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.2.tgz#5b6335feb9f5301f3c013b9096cb8885bdbd5076"
-
 core-js@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
@@ -1906,6 +1878,10 @@ ionic-angular@3.4.2:
 ionic-plugin-keyboard@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ionic-plugin-keyboard/-/ionic-plugin-keyboard-2.2.1.tgz#f2a9e169bbe9b5522400347c9fd6d3467ee3fa12"
+
+ionic2-super-tabs@^2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/ionic2-super-tabs/-/ionic2-super-tabs-2.6.3.tgz#3e1c2144f3d48fcc842ed95a97965b7a7e3dee89"
 
 ionicons@3.0.0:
   version "3.0.0"
@@ -3936,7 +3912,7 @@ ws@1.1.1:
     options ">=0.0.5"
     ultron "1.0.x"
 
-xml2js@0.4.17, xml2js@^0.4.17:
+xml2js@0.4.17:
   version "0.4.17"
   resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.17.tgz#17be93eaae3f3b779359c795b419705a8817e868"
   dependencies:

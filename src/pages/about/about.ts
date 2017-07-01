@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { SuperTabsController } from 'ionic2-super-tabs/dist';
 
-import { PlayPage } from './../play/play';
+import { TabsPage } from './../tabs/tabs';
 
 
 @IonicPage()
@@ -11,10 +12,14 @@ import { PlayPage } from './../play/play';
 })
 export class AboutPage {
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private superTabsCtrl: SuperTabsController,
+    private tabsPage: TabsPage,
+  ) {}
 
   private onPlayClick(): void {
-    this.navCtrl.setRoot(PlayPage);
+    this.superTabsCtrl.slideTo(0);
+    this.tabsPage.currentTabIndex = 0;
   }
 
   private onLearnMoreClick(): void {
