@@ -4,7 +4,6 @@ page-about {
     background-color: color($colors, light);
     padding: 16px;
     width: 100%;
-    min-height: 150px;
     text-align: center;
   }
 
@@ -14,6 +13,14 @@ page-about {
     max-height: 200px;
   }
 
+  @media screen and (max-width: 576px) {
+
+    .about-header img {
+      padding: 0;
+      max-height: 100px;
+    }
+    
+  }
   .about-info {
     font-size: 1.1em;
 
