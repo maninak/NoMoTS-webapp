@@ -30,6 +30,10 @@ export class PlayPage {
 
   response: { message: JSON, error: Error };
 
+  // Functional programming trick
+  // Assign a memoized function to a class member
+  getArrayOfSize: Function = this.getMemoizedArrayOfSize();
+
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
@@ -107,10 +111,24 @@ export class PlayPage {
       });
   }
 
-  private getArrayOfSize(size: number): [number] {
-    // an array of <size> numbers [0, 1, 2, 3, ..., size-1]
-    let array: [number] = Array.apply(undefined, {length: size}).map(Number.call, Number);
-    return array;
+  // A memoized function that takes a number `size` and returns
+  // an array of <size> numbers [0, 1, 2, 3, ..., size-1]
+  //
+  // By definition of memoized functions, if a previous call getMemoizedArrayOfSize(n)
+  // has been made with the same value of n, then no new array is created and the result
+  // of the previous call is returned instantly.
+  private getMemoizedArrayOfSize(): Function {
+    let cache: Object = {};
+    return (size: number): [number] => {
+      if (size in cache) {
+        return cache[size];
+      }
+      else {
+        let array: [number] = Array.apply(undefined, {length: size}).map(Number.call, Number);
+        cache[size] = array;
+        return array;
+      }
+    };
   }
 
 }
